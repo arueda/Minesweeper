@@ -30,12 +30,12 @@ class MineSweeper {
 		var row = 0
 
 		while row < 8 {
-			//print the board
-			print( "PRINTING BOARD")
-			board.boardPrint()
-
+			
 			col = 0
 			while col < 8 {
+				//print the board
+				print( "PRINTING BOARD")
+				board.boardPrint()
 				//clic on the board!
 				print( "CLICKED AT \(col), \(row)")
 				board.click(col,row)

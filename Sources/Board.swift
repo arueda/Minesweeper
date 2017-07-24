@@ -58,7 +58,8 @@ class Board {
        	let element = getElementAt(col, row)
     
         if element == MineCell {
-            print ("GAME OVER")
+            setElement(MineCellPressed, col, row)
+            print("GAME OVER")
         }else if  element >= MineCell {
        		expansion(col, row)
        	}
@@ -75,7 +76,9 @@ class Board {
             }else{
 				if(element == MineCellPressed){
 					print (" X ", terminator:"")
-				}else{
+				}else if element == EmptyCellPressed{
+                    print (" _ ", terminator:"")
+                }else{
 					print (" \(element) ", terminator:"")	
 				}
             }
