@@ -29,7 +29,8 @@ class MineSweeper : BoardListener{
 		endGame = true
 		print("perdiste")
 	}
-    func gameEnded() -> Void{
+
+	func gameEnded() -> Void{
 		endGame = true
 	}
 }
