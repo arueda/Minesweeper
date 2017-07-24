@@ -1,7 +1,7 @@
 class Board {
-	var data:[Int] = []
+    var data:[Int] = []
 	
-	let MineCell = 9
+    let MineCell = 9
     let EmptyCell = 10
     let MineCellPressed = -1
     let EmptyCellPressed = 0
