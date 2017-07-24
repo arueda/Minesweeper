@@ -6,8 +6,8 @@ class Board {
     let MineCellPressed = -1
     let EmptyCellPressed = 0
 
-	var ROWS:Int = 0
-	var COLS:Int = 0
+    var ROWS:Int = 0
+    var COLS:Int = 0
     let listener:BoardListener 
 	
 	init(boardListener:BoardListener){
