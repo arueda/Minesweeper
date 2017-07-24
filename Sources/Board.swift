@@ -1,18 +1,39 @@
 class Board {
-	var data:[Int]
+	var data:[Int] = []
 	
 	let MineCell = 9
     let EmptyCell = 10
     let MineCellPressed = -1
     let EmptyCellPressed = 0
 
-	let ROWS = 8
-	let COLS = 8 
+	var ROWS:Int = 0
+	var COLS:Int = 0
+    let listener:BoardListener 
 	
-	init(){
-		data = [Int](repeating: 10, count: 64)
+	init(boardListener:BoardListener){
+        listener = boardListener
 	}
-	
+
+    func fillBoard(rows:Int, cols:Int){
+        data = [Int](repeating: EmptyCell, count: rows*cols)
+        ROWS = rows
+        COLS = cols
+        
+        var placedMines = 0
+		let maxMines = 10
+		
+		let mineGenerator = MineGenerator(rows*cols)
+		
+		while placedMines < maxMines {
+
+    		let mine = mineGenerator.getMine()
+		    //placeMine will be false if the spot is already used
+		    if placeMine(mine) {
+ 		       placedMines += 1
+		    }
+		}
+    }
+
 	func placeMine(_ mine:Int) -> Bool{
         
         var minePlaced = false 
@@ -59,7 +80,7 @@ class Board {
     
         if element == MineCell {
             setElement(MineCellPressed, col, row)
-            print("GAME OVER")
+            listener.minePressed()
         }else if  element >= MineCell {
        		expansion(col, row)
        	}
